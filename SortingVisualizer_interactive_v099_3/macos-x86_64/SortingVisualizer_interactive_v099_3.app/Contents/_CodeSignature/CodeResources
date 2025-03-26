@@ -24,11 +24,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2j8a5UJc7lfr2cKPKTVCG5cKLOQ=
+			U5BwiYPG6ggkpJLL3vbKWQp1gpw=
 			</data>
 			<key>hash2</key>
 			<data>
-			n6q6OlPKNJSPVeVoRiHApCOTq8JI7PYe0snDnm18LJQ=
+			Yse3GUO1am4kWPuEcdF22wVlqqzCQxCZwIYr0oCQ2tk=
 			</data>
 		</dict>
 		<key>Java/core.jar</key>
@@ -228,6 +228,15 @@
 			<data>
 			cqDYLWBnc/vK/8g1wugXBmpsRd5yJ5XULlUGUQv6eU4=
 			</data>
+		</dict>
+		<key>PlugIns/jdk-17.0.8+7</key>
+		<dict>
+			<key>cdhash</key>
+			<data>
+			cnUsIzv5dTUI/C1sfnR6JqxIU+A=
+			</data>
+			<key>requirement</key>
+			<string>cdhash H"72752c233bf9753508fc2d6c7e747a26ac4853e0"</string>
 		</dict>
 		<key>Resources/application.icns</key>
 		<dict>

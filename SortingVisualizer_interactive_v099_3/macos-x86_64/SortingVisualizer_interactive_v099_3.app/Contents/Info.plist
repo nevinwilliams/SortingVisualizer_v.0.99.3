@@ -32,7 +32,8 @@
     <string>Created with Processing</string>
     <!-- End of the set that can be customized -->
 
-    
+    <key>JVMRuntime</key>
+    <string>jdk-17.0.8+7</string>
 
     <key>JVMMainClassName</key>
     <string>SortingVisualizer_interactive_v099_3</string>
