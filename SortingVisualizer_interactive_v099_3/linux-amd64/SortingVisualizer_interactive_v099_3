@@ -1,0 +1,5 @@
+#!/bin/sh
+
+APPDIR=$(readlink -f "$0")
+APPDIR=$(dirname "$APPDIR")
+java -Xms64m -Xmx512m -Djna.nosys=true -Djava.library.path="$APPDIR:$APPDIR/lib" -cp "$APPDIR:$APPDIR/lib/SortingVisualizer_interactive_v099_3.jar:$APPDIR/lib/jogl-all.jar:$APPDIR/lib/gluegen-rt.jar:$APPDIR/lib/core.jar:$APPDIR/lib/sound.jar:$APPDIR/lib/vorbisspi-1.0.3.3.jar:$APPDIR/lib/mp3spi-1.9.5.4.jar:$APPDIR/lib/jportaudio.jar:$APPDIR/lib/tritonus-share-0.3.7.4.jar:$APPDIR/lib/jlayer-1.0.1.4.jar:$APPDIR/lib/jsyn-17.1.0.jar:$APPDIR/lib/jorbis-0.0.17.4.jar" SortingVisualizer_interactive_v099_3 "$@"
