@@ -51,6 +51,7 @@ static void countSort(int arr[], int n, int exp)
 // size n using Radix Sort
 static void radixSort(int arr[])
 {
+  sortName = "Radix LSD Sort";
   int n = aSize;
   // Find the maximum number to know number of digits
   int m = getMax(arr, n);
@@ -65,6 +66,7 @@ static void radixSort(int arr[])
 
 static void selectionSort(int arr[])
 {
+  sortName = "Selection Sort";
   int n = aSize;
   for (int i = 0; i < n-1; i++)
   {
@@ -91,6 +93,8 @@ static void selectionSort(int arr[])
 
 static void shellSort(int[] arr) {
 
+  sortName = "Shell's Sort";
+  
   int n = aSize;
 
 

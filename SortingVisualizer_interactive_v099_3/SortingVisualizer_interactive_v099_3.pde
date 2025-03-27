@@ -26,6 +26,8 @@ static int base = 10; // For Radix Sorts.
 static boolean runOK = false;
 static boolean running = false;
 
+static String sortName = "";
+
 // colourMode
 // 0 = white
 // 1 = spectrum
@@ -103,19 +105,20 @@ float colourFactor = 1.25;   // HSB range = aSize * colourFactor
 
 //*****************************************************SOUND STUFF*****************
 
-SqrOsc snd0;
+SqrOsc snd0;       // sets up two Square Oscillators, one for each floating pointer.
 SqrOsc snd1;
-Reverb reverb0;
-Reverb reverb1;
 
-Env env0;
-Env env1;
+Reverb reverb0;   // Applies default reverb effect
+Reverb reverb1;    // Adding reverb made the best change.
+
+Env env0;        // Applies an ASR envelope
+Env env1;        //  The envelope keeps the tones from playing longer than a few frames.  Sounds ok with reverb.
 
 
-float aT = 1.0/120;
-float sT = 1.0/120;
-float sL = 0.01;
-float rT = 1.0/120;
+float aT = 1.0/120;    // Attack Time
+float sT = 1.0/120;    // Sustain Time
+float sL = 0.01;      // Sustain Level
+float rT = 1.0/120;  // Release Time       (changing any of these really did not affect the sound quality at all)
 
 /*  Some sorts' pointers stick to an element or value for an extended time, causing a long, steady tone.
  The sound code stops playing if there are two consecutive notes in a row.  Some sorts, like QuickSort just have
@@ -129,13 +132,13 @@ static boolean samePitchQuench = true;
 //ARRAY SIZE DEFINITION -- might be less of a deal now with newer scaling drawing.
 
 // ******************
-static int aSize = 0;    //array size for several functions.
+static int aSize = 0;    //the MAIN array size for several functions.
 // *****************
 
 float wd = 1280.0;   // window width
 float ht = 720.0;   //  window height
 
-float yR = 0.0;    // global var to represent the y-Ratio for lines.-
+float yR = 0.0;    // global var to represent the y-Ratio for lines.
 float xR = 0.0;    // global var to represent the x-Ratio for lines.
 
 // The settings() method must be used if screen height & width are defined with variables.
@@ -145,13 +148,14 @@ float xR = 0.0;    // global var to represent the x-Ratio for lines.
 // wish me luck.
 
 
-char inputKey = ' ';
+char inputKey = ' ';  // defaults to Display Menu key.
 
 
 
 
 void settings() {
-  size((int)wd, (int)ht, P2D);
+//  size((int)wd, (int)ht, P2D);
+fullScreen(P2D);
   smooth();
   //options for renderer: none, P2D, P3D, (FX2D with JavaFX library imported)
 }
@@ -160,10 +164,11 @@ void settings() {
 //*******************************SETUP**********************
 void setup() {
 
+  wd = width;
+  ht = height;
   background(0);
-  refresh++;
-  //clears background to black.
-  // causes draw() method to loop continuously, until noLoop() is called.
+
+
   loop();
 
 
@@ -172,6 +177,8 @@ void setup() {
   frameRate(60);
 
 
+/* This stanza defines the sound effects.  snd0 corresponds to ptr0 sounds.
+snd1 corresponds to ptr1 sounds. */
 
   snd0 = new SqrOsc(this);
   snd1 = new SqrOsc(this);
@@ -222,9 +229,12 @@ void draw() {
 
   // main scale and translate calls have to be at start of draw() because docs say they reset each loop
 
+float scaleFactor = 0.89;
 
-  scale(0.90, 0.90);    // shrinks the drawing within the display screen.
-  translate(64, 36.0);  // gives a small border around drawing.
+  scale(scaleFactor, scaleFactor);    // shrinks the drawing within the display screen.
+//  translate((((1.0-scaleFactor) * width)/2/scaleFactor), ((1.0-scaleFactor) * height)/2/scaleFactor);  // gives a small border around drawing.
+// textSize(((1.0-scaleFactor) * height)/2/scaleFactor)
+  translate((((1.0-scaleFactor) * width)/2/scaleFactor), ((1.0-scaleFactor) * height)/2/scaleFactor);  // gives a small border around drawing.
 
 
   if (showMenu && !running) {
@@ -232,6 +242,8 @@ void draw() {
   }
 
   if (iter < aList.size() && runOK) {
+    
+background(0);  
 
     if (displayMode == '0') {
       drawSpectrum(aList.get(iter));
@@ -271,6 +283,7 @@ void draw() {
     }
     if (runOK) {  // keeps from crashing if a pointer mode
       iter++;                 // is selected before a sort mode.
+      writeSortName(((1.0-scaleFactor) * height)/2/scaleFactor);
     }
   } else {
     drawArrayDone = true;
@@ -280,21 +293,7 @@ void draw() {
   }
 
 
-  // all drawing commands in drawArray are rendered  at this point.
-
-  // to save images for a video use
-  // the following; .jpgs are small but lossy; .tifs are huge.
-
-  // If the 'saveframe' is used as default, it will save to the project's directory.
-  // Make a 'stills' directory in the system file browser
-  // so as to cut down on clutter.
-
-  // Use the "Movie Maker" tool to stitch the images into video.
-  //  the number of #marks correspond to the number of digits in the filename sequence.
-  //  (nobody wants to see 100,000+ frames of sorting.  it's fascinating, but not THAT fascinating)
-  // so try to keep the aQueue size below 100K ;)
-  //  At 60 FPS:  3,600 frames = 1 minute.
-  //              18,000 frames = 5 minutes.  (probably about the attention-span limit)
+ 
 
 
   // saveFrame("stills/images-#####.tif");

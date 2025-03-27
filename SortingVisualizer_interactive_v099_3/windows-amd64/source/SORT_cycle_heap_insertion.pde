@@ -5,6 +5,7 @@
 // Function sort the array using Cycle sort
 public static void cycleSort(int arr[])
 {
+  sortName = "Cycle Sort";
   // count number of memory writes
   int writes =0;
   int n = aSize;
@@ -78,6 +79,36 @@ public static void cycleSort(int arr[])
   snap(arr, 0, aSize);
 }
 
+
+// Main function to do heap sort
+static  void heapSort(int arr[]) {
+  sortName = "Max Heap Sort";
+  int n = aSize;
+  // Build heap (rearrange array)
+  for (int i = n / 2 - 1; i >= 0; i--) {
+
+    heapify(arr, n, i);
+  }
+
+  // One by one extract an element from heap
+  for (int i = n - 1; i > 0; i--) {
+
+    // Move current root to end
+    int temp = arr[0];
+    arr[0] = arr[i];
+    arr[i] = temp;
+    swaps++;
+    aas+=3;
+    snap(arr, 0, i);
+
+    // Call max heapify on the reduced heap
+    heapify(arr, i, 0);
+  }
+  //        snap(arr, 0, 0);
+  //      return(arr);   //replace if method nees to be int[]
+}
+
+
 // To heapify a subtree rooted with node i
 // which is an index in arr[].
 static void heapify(int arr[], int n, int i) {
@@ -118,38 +149,11 @@ static void heapify(int arr[], int n, int i) {
   }
 }
 
-// Main function to do heap sort
-static  void heapSort(int arr[]) {
-  int n = aSize;
-  // Build heap (rearrange array)
-  for (int i = n / 2 - 1; i >= 0; i--) {
-
-    heapify(arr, n, i);
-  }
-
-  // One by one extract an element from heap
-  for (int i = n - 1; i > 0; i--) {
-
-    // Move current root to end
-    int temp = arr[0];
-    arr[0] = arr[i];
-    arr[i] = temp;
-    swaps++;
-    aas+=3;
-    snap(arr, 0, i);
-
-    // Call max heapify on the reduced heap
-    heapify(arr, i, 0);
-  }
-  //        snap(arr, 0, 0);
-  //      return(arr);   //replace if method nees to be int[]
-}
-
 
 void insertionSort(int arr[])
 {
 
-
+  sortName = "Insertion Sort";
   int n = aSize;
   for (int i = 1; i < n; ++i) {
     int key1 = arr[i];

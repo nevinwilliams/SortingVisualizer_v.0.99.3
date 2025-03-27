@@ -1,4 +1,4 @@
-
+ //<>//
 
 //*************************************ARRAY DRAWING CODE*****************************************
 //    drawSpectrum:  draws a wedge from left bottom to right top, in spectral colours.
@@ -210,7 +210,7 @@ void drawTrails() {
       transp -= steps;
       lines++;
     }
-  } else {  
+  } else {
     // since the main code pulls past data, it can't start immediately.
     // this just draws single lines at the start so there won't be a blank
     // spot in the animation.
@@ -417,7 +417,7 @@ void soundPtr() {
   if (iter > 1) {
     oldPtr = ptrList.get(iter -1 );
   }
-  
+
   if (ptr[2] > 0 && ptr[2] < aSize -1) {
     if (ptr[2] == oldPtr[2] && samePitchQuench) {
     } else {
@@ -432,4 +432,15 @@ void soundPtr() {
       env1.play(snd1, aT, sT, sL, rT);
     }
   }
+}
+
+void writeSortName(float size) {
+
+  
+  fill(0, 0, 10, 10);                 // white text
+  textSize(size - 5);
+  rectMode(CENTER);
+  textAlign(CENTER, CENTER);
+  text(sortName, width/2, height + size/2, width, size);
+ 
 }

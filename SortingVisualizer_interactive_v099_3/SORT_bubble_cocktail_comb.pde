@@ -1,5 +1,6 @@
 static void bubbleSort(int arr[])
 {
+  sortName = "Bubble Sort";
   int i, j, temp;
   int n = aSize;
   boolean swapped;
@@ -23,22 +24,22 @@ static void bubbleSort(int arr[])
     // swapped by inner loop, then break
     if (swapped == false)
     {
- //     snap(arr, 0, aSize -1);
-      
+      //     snap(arr, 0, aSize -1);
     }
   }
 
-//snap(arr, 0, aSize -1);
+  //snap(arr, 0, aSize -1);
 }
 
 public static void cocktailSort(int[] nums)
 
-    {
-    boolean swapped;
-    do {
+{
+  sortName = "Cocktail Shaker Sort";
+  boolean swapped;
+  do {
     swapped = false;
-    for (int i =0; i<=  aSize  - 2;i++) {
-   
+    for (int i =0; i<=  aSize  - 2; i++) {
+
       if (nums[ i ] > nums[ i + 1 ]) {
 
         //test if two elements are in the wrong order
@@ -53,7 +54,7 @@ public static void cocktailSort(int[] nums)
       break;
     }
     swapped = false;
-    for (int i= aSize - 2;i>=0;i--) {
+    for (int i= aSize - 2; i>=0; i--) {
       if (nums[ i ] > nums[ i + 1 ]) {
         int temp = nums[i];
         nums[i] = nums[i+1];
@@ -63,66 +64,68 @@ public static void cocktailSort(int[] nums)
       }
     }
   } while (swapped);
-  snap(nums,0,aSize -1);
- 
+  snap(nums, 0, aSize -1);
 }
 
 
 
-    // Java program for implementation of Comb Sort
+// Java program for implementation of Comb Sort
 
 
-public static int getNextGap(int gap)
-    {
-        // Shrink gap by Shrink factor
-        gap = (gap*10)/13;
-        if (gap < 1)
-            return 1;
-        return gap;
-    }
+
 
 public static void combSort (int[] array)
 
-                            
+
 {
-   
-        int n = aSize;
-        snap(array, 0, n-1);
-        // initialize gap
-        int gap = n;
+  sortName = "Comb Sort";
 
-        // Initialize swapped as true to make sure that
-        // loop runs
-        boolean swapped = true;
+  int n = aSize;
+  snap(array, 0, n-1);
+  // initialize gap
+  int gap = n;
 
-        // Keep running while gap is more than 1 and last
-        // iteration caused a swap
-        while (gap >= 1 && swapped == true)
-        {
-            // Find next gap
-            gap = getNextGap(gap);
+  // Initialize swapped as true to make sure that
+  // loop runs
+  boolean swapped = true;
 
-            // Initialize swapped as false so that we can
-            // check if swap happened or not
-            swapped = false;
+  // Keep running while gap is more than 1 and last
+  // iteration caused a swap
+  while (gap >= 1 && swapped == true)
+  {
+    // Find next gap
+    gap = getNextGap(gap);
 
-            // Compare all elements with current gap
-            for (int i=0; i<n-gap; i++)
-            {
-              snap(array, i, i + gap);
-              
-                if (array[i] > array[i+gap])
-                {
-                    // Swap arr[i] and arr[i+gap]
-                    int temp = array[i];
-                    array[i] = array[i+gap];
-                    array[i+gap] = temp;
-                    
-               //     snap(array, i, i + gap, aList, ptrList);
+    // Initialize swapped as false so that we can
+    // check if swap happened or not
+    swapped = false;
 
-                    // Set swapped
-                    swapped = true;
-                }
-            }
-        }
+    // Compare all elements with current gap
+    for (int i=0; i<n-gap; i++)
+    {
+      snap(array, i, i + gap);
+
+      if (array[i] > array[i+gap])
+      {
+        // Swap arr[i] and arr[i+gap]
+        int temp = array[i];
+        array[i] = array[i+gap];
+        array[i+gap] = temp;
+
+        //     snap(array, i, i + gap, aList, ptrList);
+
+        // Set swapped
+        swapped = true;
+      }
     }
+  }
+}
+
+public static int getNextGap(int gap)
+{
+  // Shrink gap by Shrink factor
+  gap = (gap*10)/13;
+  if (gap < 1)
+    return 1;
+  return gap;
+}

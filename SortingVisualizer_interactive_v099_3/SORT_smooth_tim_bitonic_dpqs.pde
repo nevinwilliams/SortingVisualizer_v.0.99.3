@@ -51,6 +51,7 @@ static void smoothHeapify(int[] arr, int start, int end)
 // Smooth Sort function
 static void smoothSort(int[] arr)
 {
+  sortName = "Smooth Sort";
   int n = aSize;
 
   int p = n - 1;
@@ -193,6 +194,7 @@ static void timMerge(int arr[], int start, int mid, int end)
 
 public static void timSort(int[] arr, int n)
 {
+  sortName = "Tim Sort";
   int minRun = minRunLength(MIN_MERGE);
 
   // Sort individual subarrays of size RUN
@@ -303,6 +305,7 @@ static void dpqsSwap(int[] arr, int i, int j)
 
 static void dualPivotQuickSort(int[] arr, int low, int high)
 {
+  sortName = "Dual Pivot QuickSort";
   if (low < high)
   {
 

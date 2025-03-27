@@ -1,7 +1,38 @@
 // Java program to perform
 // iterative merge sort.
 
-// Helper function to merge two sorted portions of the array
+
+// Main sorting function
+
+
+static void iterativeMergeSort(int[] arr) {
+
+  sortName = "Iterative Merge Sort";
+  
+  int n = aSize;
+
+  // Iterate through subarrays of increasing size
+  for (int currSize = 1; currSize <= n - 1;
+    currSize = 2 * currSize) {
+
+    // Pick starting points of different
+    // subarrays of current size
+    for (int leftStart = 0; leftStart < n - 1;
+      leftStart += 2 * currSize) {
+
+      // Find endpoints of the subarrays to be merged
+      int mid = Math.min(leftStart + currSize - 1, n - 1);
+      int rightEnd = Math.min(leftStart + 2 * currSize - 1, n - 1);
+
+      // Merge the subarrays arr[leftStart...mid]
+      // and arr[mid+1...rightEnd]
+      iterativeMerge(arr, leftStart, mid, rightEnd);
+    }
+    snap(arr, 0, aSize);
+  }
+  snap(arr, 0, aSize);
+}
+
 static void iterativeMerge(int arr[], int start, int mid, int end)
 {
 
@@ -50,30 +81,4 @@ static void iterativeMerge(int arr[], int start, int mid, int end)
     //   snap(arr, start, mid+1);
   }
   snap(arr, start, end+1);
-}
-
-// Main sorting function
-static void iterativeMergeSort(int[] arr) {
-  int n = aSize;
-
-  // Iterate through subarrays of increasing size
-  for (int currSize = 1; currSize <= n - 1;
-    currSize = 2 * currSize) {
-
-    // Pick starting points of different
-    // subarrays of current size
-    for (int leftStart = 0; leftStart < n - 1;
-      leftStart += 2 * currSize) {
-
-      // Find endpoints of the subarrays to be merged
-      int mid = Math.min(leftStart + currSize - 1, n - 1);
-      int rightEnd = Math.min(leftStart + 2 * currSize - 1, n - 1);
-
-      // Merge the subarrays arr[leftStart...mid]
-      // and arr[mid+1...rightEnd]
-      iterativeMerge(arr, leftStart, mid, rightEnd);
-    }
-    snap(arr,0, aSize);
-  }
-  snap(arr, 0, aSize);
 }

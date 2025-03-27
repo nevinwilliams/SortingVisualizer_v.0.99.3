@@ -182,12 +182,11 @@ public class Introsort {
   // Introsort module
   private void sortData()
   {
+    sortName = "Introspective Sort";
 
-    // Initialise the depthLimit
-    // as 2*log(length(data))
-    int depthLimit
-      = (int)(2 * Math.floor(Math.log(n) /
-      Math.log(2)));
+      // Initialise the depthLimit
+      // as 2*log(length(data))
+      int depthLimit = (int)(2 * Math.floor(Math.log(n) /  Math.log(2)));
 
     this.sortDataUtil(0, n - 1, depthLimit);
   }
@@ -197,7 +196,7 @@ public class Introsort {
 
 void mergeSort(int arr[], int left, int right) {
 
-
+  sortName = "In-place Merge Sort";
 
   if (left < right) {
 
@@ -217,7 +216,7 @@ void mergeSort(int arr[], int left, int right) {
     snap(arr, left, right+1);
   }
 
-//  snap(arr, left, right+1);
+  //  snap(arr, left, right+1);
 }
 
 // Merges two subarrays of arr[].

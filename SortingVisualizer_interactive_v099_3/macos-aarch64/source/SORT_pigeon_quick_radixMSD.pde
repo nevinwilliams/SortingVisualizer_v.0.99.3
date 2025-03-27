@@ -2,6 +2,7 @@
 
 public static void pigeonholeSort(int arr[])
 {
+  sortName = "Pigeonhole Sort";
   int min = arr[0];
   int max = arr[0];
   int range, i, j, index;
@@ -54,7 +55,7 @@ snap(arr, 0, aSize);
 
 static void quickSort(int arr[], int low, int high) {
 
-
+sortName = "QuickSort";
 
   if (low < high) {
 
@@ -144,6 +145,7 @@ static int digit_at(int x, int d)
 // MSD Radix Sort recursively
 static int[] MSD_sort(int[] arr, int lo, int hi, int d)
 {
+  sortName = "Radix MSD Sort";
   //snap(arr, lo, hi);  // Snap 1
   // recursion break condition
   if (hi <= lo) {
