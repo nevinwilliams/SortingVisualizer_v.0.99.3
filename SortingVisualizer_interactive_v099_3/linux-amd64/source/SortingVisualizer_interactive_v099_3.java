@@ -18,7 +18,7 @@ import java.io.IOException;
 
 public class SortingVisualizer_interactive_v099_3 extends PApplet {
 
-//import processing.javafx.*;   // javaFX "FX2D" renderer. //<>//
+//import processing.javafx.*;   // javaFX "FX2D" renderer.
 //import java.util.LinkedList;  // Also for Array Queues
       // Array Utilities.
 
@@ -769,7 +769,7 @@ loop();
  runOK = true;
  running = true;
 }
- //<>//
+
 
 //*************************************ARRAY DRAWING CODE*****************************************
 //    drawSpectrum:  draws a wedge from left bottom to right top, in spectral colours.
@@ -2097,7 +2097,7 @@ public static int digit_at(int x, int d)
 // MSD Radix Sort recursively
 public static int[] MSD_sort(int[] arr, int lo, int hi, int d)
 {
-  sortName = "Radix MSD Sort";
+  sortName = "Radix MSD Sort, base " + base ;
   //snap(arr, lo, hi);  // Snap 1
   // recursion break condition
   if (hi <= lo) {
@@ -2233,7 +2233,7 @@ public static void countSort(int arr[], int n, int exp)
 // size n using Radix Sort
 public static void radixSort(int arr[])
 {
-  sortName = "Radix LSD Sort";
+  sortName = "Radix LSD Sort, base "+ base;
   int n = aSize;
   // Find the maximum number to know number of digits
   int m = getMax(arr, n);

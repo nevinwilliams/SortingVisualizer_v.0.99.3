@@ -51,7 +51,7 @@ static void countSort(int arr[], int n, int exp)
 // size n using Radix Sort
 static void radixSort(int arr[])
 {
-  sortName = "Radix LSD Sort";
+  sortName = "Radix LSD Sort, base "+ base;
   int n = aSize;
   // Find the maximum number to know number of digits
   int m = getMax(arr, n);

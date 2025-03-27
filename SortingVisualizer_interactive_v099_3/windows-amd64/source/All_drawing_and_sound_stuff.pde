@@ -1,4 +1,4 @@
- //<>//
+
 
 //*************************************ARRAY DRAWING CODE*****************************************
 //    drawSpectrum:  draws a wedge from left bottom to right top, in spectral colours.

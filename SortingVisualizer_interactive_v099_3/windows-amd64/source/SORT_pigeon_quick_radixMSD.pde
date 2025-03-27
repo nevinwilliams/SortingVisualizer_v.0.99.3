@@ -145,7 +145,7 @@ static int digit_at(int x, int d)
 // MSD Radix Sort recursively
 static int[] MSD_sort(int[] arr, int lo, int hi, int d)
 {
-  sortName = "Radix MSD Sort";
+  sortName = "Radix MSD Sort, base " + base ;
   //snap(arr, lo, hi);  // Snap 1
   // recursion break condition
   if (hi <= lo) {

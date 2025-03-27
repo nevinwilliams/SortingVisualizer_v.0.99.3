@@ -1,4 +1,4 @@
-//import processing.javafx.*;   // javaFX "FX2D" renderer. //<>//
+//import processing.javafx.*;   // javaFX "FX2D" renderer.
 //import java.util.LinkedList;  // Also for Array Queues
 import java.util.Arrays;      // Array Utilities.
 import processing.sound.*;
