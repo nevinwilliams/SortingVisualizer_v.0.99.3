@@ -7,7 +7,7 @@ import processing.sound.*;
 //* Static global Variables */
 
 
-// Counters *********
+// Counters **********
 static int swaps = 0;  // put 'swaps++' in sort algorithms when array elements get exchanged.
 static int aas = 0;    // put 'aas++' in sort algos at points where there are Array Accesses.
 static int comps = 0;  // put in 'comps++' where elements are compared < or > or = or 1.
