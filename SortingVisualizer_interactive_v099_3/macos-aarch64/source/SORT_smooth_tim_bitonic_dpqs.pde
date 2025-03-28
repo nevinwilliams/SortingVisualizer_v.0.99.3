@@ -273,7 +273,9 @@ void bitonicMerge(int a[], int low, int cnt, int dir)
  sorting orders, and then calls bitonicMerge to make
  them in the same order */
 void bitonicSort(int a[], int low, int cnt, int dir)
+
 {
+  sortName = "Bi-tonic Sort";
   if (cnt > 1) {
     int k = cnt / 2;
 
